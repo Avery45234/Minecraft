@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voxel Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container"></div>
+    <div id="overlay">
+        <div id="crosshair">+</div>
+        <div id="info">
+            <div id="fps">FPS: 0</div>
+            <div id="coords">X: 0, Y: 0, Z: 0</div>
+            <div id="instructions">
+                WASD + Mouse to move | Left-click to break | Right-click to place | 1-7 or Scroll to change block
+            </div>
+        </div>
+        <div id="hotbar">
+            <div class="slot active" data-id="1"></div>
+            <div class="slot" data-id="2"></div>
+            <div class="slot" data-id="3"></div>
+            <div class="slot" data-id="4"></div>
+            <div class="slot" data-id="5"></div>
+            <div class="slot" data-id="6"></div>
+            <div class="slot" data-id="7"></div>
+        </div>
+        <div id="start-screen">
+            <h1>Voxel Game</h1>
+            <button id="start-button">Click to Play</button>
+            <p>
+                WASD + Mouse to move<br>
+                Left-click to break<br>
+                Right-click to place<br>
+                1-7 or Scroll to change block
+            </p>
+        </div>
+    </div>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
