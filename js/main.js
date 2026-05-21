@@ -6,7 +6,7 @@ import { WORLD_WIDTH, WORLD_HEIGHT, WORLD_DEPTH, INVENTORY_SLOTS, HOTBAR_SLOTS }
 import { initWorld, generateWorld, getBlock, setBlock, updateDirtyChunks, chunkMeshes } from './world.js';
 import { player, initPlayer, updatePlayer, setCrouch } from './player.js';
 import { initUI, updateHotbar, updateInventoryUI, toggleInventory, setActiveHotbarIndex, cycleHotbar, inventoryOpen, activeHotbarIndex, addToInventory, removeFromInventory } from './ui.js';
-import { initRenderer, renderScene, toggleThirdPerson, scene, camera, renderer } from './rendering.js';
+import { initRenderer, renderScene, toggleThirdPerson, getScene, getCamera } from './rendering.js';
 
 // DOM Elements
 const container = document.getElementById('container');
@@ -29,6 +29,9 @@ let breakTexture;
 
 function init() {
     const { solidMaterial, transparentMaterial, waterMaterial } = initRenderer(container);
+    
+    const camera = getCamera();
+    const scene = getScene();
     
     camera.position.set(WORLD_WIDTH / 2, WORLD_HEIGHT, WORLD_DEPTH / 2);
 
@@ -170,7 +173,7 @@ function onMouseWheel(event) {
 
 function getLookedAtBlock() {
     const raycaster = new THREE.Raycaster();
-    raycaster.setFromCamera({ x: 0, y: 0 }, camera);
+    raycaster.setFromCamera({ x: 0, y: 0 }, getCamera());
     const objectsToIntersect = Object.values(chunkMeshes)
         .flatMap(meshGroup => [meshGroup.solid, meshGroup.transparent])
         .filter(Boolean);

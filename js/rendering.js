@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { updatePlayerModelTransform, getPlayerModel } from './player.js';
 import { CAMERA_NEAR, CAMERA_DISTANCE } from './constants.js';
 
-export let scene, camera, renderer;
+let scene, camera, renderer;
 let solidMaterial, transparentMaterial, waterMaterial;
 let thirdPerson = false;
 
@@ -59,6 +59,11 @@ export function initRenderer(container) {
     
     return { solidMaterial, transparentMaterial, waterMaterial };
 }
+
+export function getScene() { return scene; }
+export function getCamera() { return camera; }
+export function getRenderer() { return renderer; }
+
 
 export function toggleThirdPerson() {
     thirdPerson = !thirdPerson;
