@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="16" viewBox="0 0 160 16">
+  <defs>
+    <style>
+      .crack {
+        fill: none;
+        stroke: #000;
+        stroke-width: 0.5;
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+
+  <!-- Stage 0 -->
+  <g transform="translate(0, 0)">
+    <path class="crack" d="M 8,8 l -2,-3"/>
+  </g>
+
+  <!-- Stage 1 -->
+  <g transform="translate(16, 0)">
+    <path class="crack" d="M 8,8 l -2,-3 l 3,1"/>
+    <path class="crack" d="M 8,8 l 3,2"/>
+  </g>
+
+  <!-- Stage 2 -->
+  <g transform="translate(32, 0)">
+    <path class="crack" d="M 8,8 l -2,-3 l 3,1 l -2,-2"/>
+    <path class="crack" d="M 8,8 l 3,2 l -4, 1"/>
+    <path class="crack" d="M 5,5 l -2, 5"/>
+  </g>
+
+  <!-- Stage 3 -->
+  <g transform="translate(48, 0)">
+    <path class="crack" d="M 8,8 l -2,-3 l 3,1 l -2,-2"/>
+    <path class="crack" d="M 8,8 l 3,2 l -4, 1 l 2, 3"/>
+    <path class="crack" d="M 5,5 l -2, 5 l 5, -1"/>
+    <path class="crack" d="M 12,12 l 2, -4"/>
+  </g>
+
+  <!-- Stage 4 -->
+  <g transform="translate(64, 0)">
+    <path class="crack" d="M 8,8 l -2,-3 l 3,1 l -2,-2 l 4, -1"/>
+    <path class="crack" d="M 8,8 l 3,2 l -4, 1 l 2, 3"/>
+    <path class="crack" d="M 5,5 l -2, 5 l 5, -1 l -3, 4"/>
+    <path class="crack" d="M 12,12 l 2, -4 l -5, -2"/>
+  </g>
+
+  <!-- Stage 5 -->
+  <g transform="translate(80, 0)">
+    <path class="crack" d="M 8,8 l -2,-3 l 3,1 l -2,-2 l 4, -1"/>
+    <path class="crack" d="M 8,8 l 3,2 l -4, 1 l 2, 3 l -5, -2"/>
+    <path class="crack" d="M 5,5 l -2, 5 l 5, -1 l -3, 4 l 6, 1"/>
+    <path class="crack" d="M 12,12 l 2, -4 l -5, -2 l 1, 5"/>
+    <path class="crack" d="M 2,14 l 12, -12"/>
+  </g>
+
+  <!-- Stage 6 -->
+  <g transform="translate(96, 0)">
+    <path class="crack" d="M 8,8 l -2,-3 l 3,1 l -2,-2 l 4, -1 l -5, 3"/>
+    <path class="crack" d="M 8,8 l 3,2 l -4, 1 l 2, 3 l -5, -2"/>
+    <path class="crack" d="M 5,5 l -2, 5 l 5, -1 l -3, 4 l 6, 1"/>
+    <path class="crack" d="M 12,12 l 2, -4 l -5, -2 l 1, 5 l 3, -5"/>
+    <path class="crack" d="M 2,14 l 12, -12"/>
+    <path class="crack" d="M 14,2 l -12, 12"/>
+  </g>
+
+  <!-- Stage 7 -->
+  <g transform="translate(112, 0)">
+    <path class="crack" d="M 8,8 l -2,-3 l 3,1 l -2,-2 l 4, -1 l -5, 3"/>
+    <path class="crack" d="M 8,8 l 3,2 l -4, 1 l 2, 3 l -5, -2 l 6, 4"/>
+    <path class="crack" d="M 5,5 l -2, 5 l 5, -1 l -3, 4 l 6, 1 l -7, -2"/>
+    <path class="crack" d="M 12,12 l 2, -4 l -5, -2 l 1, 5 l 3, -5"/>
+    <path class="crack" d="M 2,14 l 12, -12"/>
+    <path class="crack" d="M 14,2 l -12, 12"/>
+    <path class="crack" d="M 8,2 l 0, 12"/>
+  </g>
+
+  <!-- Stage 8 -->
+  <g transform="translate(128, 0)">
+    <path class="crack" d="M 8,8 l -2,-3 l 3,1 l -2,-2 l 4, -1 l -5, 3 l 3, 4"/>
+    <path class="crack" d="M 8,8 l 3,2 l -4, 1 l 2, 3 l -5, -2 l 6, 4"/>
+    <path class="crack" d="M 5,5 l -2, 5 l 5, -1 l -3, 4 l 6, 1 l -7, -2"/>
+    <path class="crack" d="M 12,12 l 2, -4 l -5, -2 l 1, 5 l 3, -5 l -4, 2"/>
+    <path class="crack" d="M 2,14 l 12, -12"/>
+    <path class="crack" d="M 14,2 l -12, 12"/>
+    <path class="crack" d="M 8,2 l 0, 12"/>
+    <path class="crack" d="M 2,8 l 12, 0"/>
+  </g>
+
+  <!-- Stage 9 -->
+  <g transform="translate(144, 0)">
+    <path class="crack" d="M 0,0 L 16,16 M 0,16 L 16,0" stroke-width="1" stroke="black" />
+    <path class="crack" d="M 8,8 l -2,-3 l 3,1 l -2,-2 l 4, -1 l -5, 3 l 3, 4"/>
+    <path class="crack" d="M 8,8 l 3,2 l -4, 1 l 2, 3 l -5, -2 l 6, 4"/>
+    <path class="crack" d="M 5,5 l -2, 5 l 5, -1 l -3, 4 l 6, 1 l -7, -2"/>
+    <path class="crack" d="M 12,12 l 2, -4 l -5, -2 l 1, 5 l 3, -5 l -4, 2"/>
+    <path class="crack" d="M 2,14 l 12, -12"/>
+    <path class="crack" d="M 14,2 l -12, 12"/>
+    <path class="crack" d="M 8,2 l 0, 12"/>
+    <path class="crack" d="M 2,8 l 12, 0"/>
+  </g>
+</svg>
