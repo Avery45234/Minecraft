@@ -39,6 +39,7 @@ export const player = {
 
 let playerModel;
 let scene, camera, controls;
+let wasInWater = false;
 
 export function initPlayer(mainScene, mainCamera, mainControls) {
     scene = mainScene;
@@ -180,18 +181,19 @@ export function updatePlayer(delta, keys) {
     player.onGround = false;
 
     if (inWater) {
-        player.velocity.y -= GRAVITY * delta * 0.5; // Reduced gravity in water
-        player.velocity.y = Math.max(player.velocity.y, -2); // Terminal velocity in water
+        player.velocity.y -= GRAVITY * delta * 0.3; // Reduced gravity in water
+        player.velocity.y = Math.max(player.velocity.y, -1.5); // Terminal velocity in water
         if (keys['Space']) {
-            player.velocity.y += 4 * delta; // Swim up
+            player.velocity.y = Math.min(player.velocity.y + GRAVITY * delta, 3); // Swim up
         }
     } else {
         player.velocity.y -= GRAVITY * delta;
-        if (keys['Space'] && wasOnGround) {
+        if (keys['Space'] && wasOnGround && !wasInWater) {
             player.velocity.y = player.jumpForce;
         }
+        keys['Space'] = false; // Consume jump input (not consumed in water so Space can be held)
     }
-    keys['Space'] = false; // Consume jump input
+    wasInWater = inWater;
 
     const rawMoveDirection = new THREE.Vector3();
     if (keys['KeyW']) rawMoveDirection.z += 1;

@@ -5,7 +5,7 @@ import { BLOCK, BLOCK_BY_ID } from './blocks.js';
 import { WORLD_WIDTH, WORLD_HEIGHT, WORLD_DEPTH, INVENTORY_SLOTS, HOTBAR_SLOTS } from './constants.js';
 import { initWorld, generateWorld, getBlock, setBlock, updateDirtyChunks, chunkMeshes } from './world.js';
 import { player, initPlayer, updatePlayer, setCrouch } from './player.js';
-import { initUI, updateHotbar, updateInventoryUI, toggleInventory, setActiveHotbarIndex, cycleHotbar, inventoryOpen, activeHotbarIndex, addToInventory, removeFromInventory } from './ui.js';
+import { initUI, updateHotbar, updateInventoryUI, toggleInventory, setActiveHotbarIndex, cycleHotbar, inventoryOpen, activeHotbarIndex, addToInventory, removeFromInventory, craftingTableOpen, openCraftingTable, closeCraftingTable } from './ui.js';
 import { initRenderer, renderScene, toggleThirdPerson, getScene, getCamera } from './rendering.js';
 
 // DOM Elements
@@ -26,6 +26,38 @@ let breakingBlockPos = new THREE.Vector3();
 let breakOverlay;
 let breakTexture;
 
+function createCrackTexture() {
+    const stages = 10;
+    const size = 16;
+    const canvas = document.createElement('canvas');
+    canvas.width = size * stages;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.strokeStyle = 'rgba(0,0,0,0.9)';
+    ctx.lineCap = 'round';
+    for (let s = 0; s < stages; s++) {
+        const ox = s * size;
+        const lines = s;
+        ctx.lineWidth = 0.5 + s * 0.1;
+        for (let l = 0; l < lines; l++) {
+            const angle = (l / lines) * Math.PI * 2 + s * 0.4;
+            const len = 3 + l * 1.2;
+            const cx2 = ox + size / 2;
+            const cy2 = size / 2;
+            ctx.beginPath();
+            ctx.moveTo(cx2, cy2);
+            ctx.lineTo(cx2 + Math.cos(angle) * len, cy2 + Math.sin(angle) * len);
+            ctx.stroke();
+        }
+    }
+    const tex = new THREE.CanvasTexture(canvas);
+    tex.magFilter = THREE.NearestFilter;
+    tex.minFilter = THREE.NearestFilter;
+    tex.wrapS = THREE.RepeatWrapping;
+    tex.repeat.x = 1 / stages;
+    return tex;
+}
 
 function init() {
     const { solidMaterial, transparentMaterial, waterMaterial } = initRenderer(container);
@@ -38,7 +70,6 @@ function init() {
     initWorld(scene, solidMaterial, transparentMaterial, waterMaterial);
 
     controls = new PointerLockControls(camera, document.body);
-    scene.add(controls.getObject());
 
     initPlayer(scene, camera, controls);
     initUI(controls, requestGameLock);
@@ -53,11 +84,7 @@ function init() {
     document.addEventListener('contextmenu', (e) => e.preventDefault());
     window.addEventListener('wheel', onMouseWheel);
 
-    const textureLoader = new THREE.TextureLoader();
-    breakTexture = textureLoader.load('assets/cracks.svg');
-    breakTexture.magFilter = THREE.NearestFilter;
-    breakTexture.minFilter = THREE.NearestFilter;
-    breakTexture.repeat.x = 1 / 10;
+    breakTexture = createCrackTexture();
     const breakMaterial = new THREE.MeshBasicMaterial({
         map: breakTexture,
         transparent: true,
@@ -84,7 +111,7 @@ function clearInput() {
 }
 
 function requestGameLock() {
-    if (!controls || controls.isLocked || inventoryOpen) return;
+    if (!controls || controls.isLocked || inventoryOpen || craftingTableOpen) return;
     controls.lock();
 }
 
@@ -117,13 +144,17 @@ function onKeyDown(e) {
     if (isGameplayInput(code) || code === 'KeyE' || code === 'KeyV' || e.code === 'F5') {
         e.preventDefault();
     }
-    if (code === 'KeyE' || (code === 'Escape' && inventoryOpen)) {
+    if (code === 'KeyE' || (code === 'Escape' && (inventoryOpen || craftingTableOpen))) {
         if (!e.repeat) {
-            toggleInventory(controls, requestGameLock);
+            if (craftingTableOpen) {
+                closeCraftingTable(controls, requestGameLock);
+            } else {
+                toggleInventory(controls, requestGameLock);
+            }
         }
         return;
     }
-    if (inventoryOpen) return;
+    if (inventoryOpen || craftingTableOpen) return;
     if (isGameplayInput(code)) {
         keys[code] = true;
     }
@@ -151,7 +182,7 @@ function onKeyUp(e) {
 }
 
 function onMouseDown(event) {
-    if (!controls.isLocked || inventoryOpen) return;
+    if (!controls.isLocked || inventoryOpen || craftingTableOpen) return;
 
     if (event.button === 0) { // Left click: break
         startBreaking();
@@ -213,8 +244,21 @@ function placeBlock() {
     const intersection = getLookedAtBlock();
     if (!intersection) return;
 
+    // Check if right-clicking a crafting table
+    const pos2 = new THREE.Vector3().copy(intersection.point);
+    const n2 = intersection.face.normal.clone();
+    n2.transformDirection(intersection.object.matrixWorld);
+    pos2.addScaledVector(n2, -0.5);
+    const [tx, ty, tz] = pos2.toArray().map(Math.floor);
+    if (getBlock(tx, ty, tz) === BLOCK.CRAFTING_TABLE.id) {
+        openCraftingTable(controls);
+        return;
+    }
+
     const activeItem = player.inventory[INVENTORY_SLOTS + activeHotbarIndex];
     if (!activeItem) return;
+
+    if (BLOCK_BY_ID[activeItem.id] && BLOCK_BY_ID[activeItem.id].placeable === false) return;
 
     const pos = new THREE.Vector3().copy(intersection.point);
     const normal = intersection.face.normal.clone();
@@ -243,7 +287,7 @@ function animate() {
 
     const delta = Math.min(0.05, clock.getDelta());
     
-    if (!inventoryOpen) {
+    if (!inventoryOpen && !craftingTableOpen) {
         // Attempt to stand up if crouch key is not held
         if (player.isCrouching && !keys['ShiftLeft']) {
             setCrouch(false);

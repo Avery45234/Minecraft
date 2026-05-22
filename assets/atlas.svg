@@ -1,10 +1,301 @@
-<svg width="64" height="32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-  <rect x="0" y="0" width="16" height="16" fill="#7CFC00" />   <!-- Grass Top -->
-  <rect x="16" y="0" width="16" height="16" fill="#987654" />   <!-- Grass Side -->
-  <rect x="32" y="0" width="16" height="16" fill="#A0522D" />   <!-- Dirt -->
-  <rect x="48" y="0" width="16" height="16" fill="#808080" />   <!-- Stone -->
-  <rect x="0" y="16" width="16" height="16" fill="#F4A460" />   <!-- Sand -->
-  <rect x="16" y="16" width="16" height="16" fill="#8B4513" />   <!-- Wood -->
-  <rect x="32" y="16" width="16" height="16" fill="#006400" />   <!-- Leaves -->
-  <rect x="48" y="16" width="16" height="16" fill="#1E90FF" />   <!-- Water -->
+<svg width="64" height="64" version="1.1" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges">
+
+  <!-- ══════════════════════════════════════════════
+       ROW 0: GrassTop  GrassSide  Dirt  Stone
+       ══════════════════════════════════════════════ -->
+
+  <!-- [0,0] Grass Top -->
+  <rect x="0"  y="0"  width="16" height="16" fill="#5CB85C"/>
+  <!-- darker patches -->
+  <rect x="1"  y="1"  width="2" height="2" fill="#4A9A4A"/>
+  <rect x="4"  y="6"  width="2" height="2" fill="#4A9A4A"/>
+  <rect x="7"  y="2"  width="2" height="2" fill="#4A9A4A"/>
+  <rect x="10" y="9"  width="2" height="2" fill="#4A9A4A"/>
+  <rect x="13" y="4"  width="2" height="2" fill="#4A9A4A"/>
+  <rect x="2"  y="12" width="2" height="2" fill="#4A9A4A"/>
+  <rect x="8"  y="14" width="2" height="2" fill="#4A9A4A"/>
+  <rect x="5"  y="10" width="2" height="2" fill="#4A9A4A"/>
+  <rect x="11" y="7"  width="2" height="2" fill="#4A9A4A"/>
+  <rect x="14" y="1"  width="2" height="2" fill="#4A9A4A"/>
+  <!-- lighter highlights -->
+  <rect x="3"  y="3"  width="1" height="1" fill="#70D070"/>
+  <rect x="9"  y="1"  width="1" height="1" fill="#70D070"/>
+  <rect x="12" y="6"  width="1" height="1" fill="#70D070"/>
+  <rect x="6"  y="11" width="1" height="1" fill="#70D070"/>
+  <rect x="1"  y="14" width="1" height="1" fill="#70D070"/>
+  <rect x="14" y="10" width="1" height="1" fill="#70D070"/>
+
+  <!-- [1,0] Grass Side -->
+  <rect x="16" y="0"  width="16" height="16" fill="#8B6340"/>
+  <!-- green top strip -->
+  <rect x="16" y="0"  width="16" height="4"  fill="#5CB85C"/>
+  <!-- dirt texture dots -->
+  <rect x="17" y="5"  width="1" height="1" fill="#6B4A2A"/>
+  <rect x="20" y="8"  width="1" height="1" fill="#6B4A2A"/>
+  <rect x="23" y="6"  width="1" height="1" fill="#6B4A2A"/>
+  <rect x="26" y="11" width="1" height="1" fill="#6B4A2A"/>
+  <rect x="29" y="7"  width="1" height="1" fill="#6B4A2A"/>
+  <rect x="18" y="14" width="1" height="1" fill="#6B4A2A"/>
+  <rect x="22" y="13" width="1" height="1" fill="#6B4A2A"/>
+  <rect x="25" y="9"  width="1" height="1" fill="#6B4A2A"/>
+  <rect x="28" y="5"  width="1" height="1" fill="#6B4A2A"/>
+  <rect x="31" y="12" width="1" height="1" fill="#6B4A2A"/>
+  <!-- light dots -->
+  <rect x="19" y="7"  width="1" height="1" fill="#9B7350"/>
+  <rect x="24" y="5"  width="1" height="1" fill="#9B7350"/>
+  <rect x="27" y="13" width="1" height="1" fill="#9B7350"/>
+  <rect x="21" y="11" width="1" height="1" fill="#9B7350"/>
+  <rect x="30" y="9"  width="1" height="1" fill="#9B7350"/>
+
+  <!-- [2,0] Dirt -->
+  <rect x="32" y="0"  width="16" height="16" fill="#8B6340"/>
+  <rect x="32" y="2"  width="2" height="2" fill="#6B4A2A"/>
+  <rect x="35" y="6"  width="2" height="2" fill="#6B4A2A"/>
+  <rect x="38" y="1"  width="2" height="2" fill="#6B4A2A"/>
+  <rect x="41" y="4"  width="2" height="2" fill="#6B4A2A"/>
+  <rect x="44" y="8"  width="2" height="2" fill="#6B4A2A"/>
+  <rect x="33" y="11" width="2" height="2" fill="#6B4A2A"/>
+  <rect x="37" y="14" width="2" height="2" fill="#6B4A2A"/>
+  <rect x="40" y="10" width="2" height="2" fill="#6B4A2A"/>
+  <rect x="43" y="13" width="2" height="2" fill="#6B4A2A"/>
+  <rect x="46" y="3"  width="2" height="2" fill="#6B4A2A"/>
+  <!-- light specks -->
+  <rect x="34" y="4"  width="1" height="1" fill="#9B7350"/>
+  <rect x="39" y="9"  width="1" height="1" fill="#9B7350"/>
+  <rect x="44" y="2"  width="1" height="1" fill="#9B7350"/>
+  <rect x="37" y="13" width="1" height="1" fill="#9B7350"/>
+  <rect x="42" y="7"  width="1" height="1" fill="#9B7350"/>
+
+  <!-- [3,0] Stone -->
+  <rect x="48" y="0"  width="16" height="16" fill="#808080"/>
+  <!-- cracks -->
+  <rect x="49" y="3"  width="8" height="1" fill="#606060"/>
+  <rect x="55" y="7"  width="6" height="1" fill="#606060"/>
+  <rect x="50" y="11" width="10" height="1" fill="#606060"/>
+  <!-- highlights -->
+  <rect x="50" y="1"  width="1" height="1" fill="#9A9A9A"/>
+  <rect x="53" y="5"  width="1" height="1" fill="#9A9A9A"/>
+  <rect x="57" y="2"  width="1" height="1" fill="#9A9A9A"/>
+  <rect x="61" y="8"  width="1" height="1" fill="#9A9A9A"/>
+  <rect x="49" y="13" width="1" height="1" fill="#9A9A9A"/>
+  <rect x="58" y="14" width="1" height="1" fill="#9A9A9A"/>
+  <rect x="54" y="9"  width="1" height="1" fill="#9A9A9A"/>
+  <rect x="62" y="4"  width="1" height="1" fill="#9A9A9A"/>
+
+  <!-- ══════════════════════════════════════════════
+       ROW 1: Sand  Wood(Log)  Leaves  Water
+       ══════════════════════════════════════════════ -->
+
+  <!-- [0,1] Sand -->
+  <rect x="0"  y="16" width="16" height="16" fill="#DABC7A"/>
+  <rect x="1"  y="18" width="2" height="1" fill="#C8AA68"/>
+  <rect x="4"  y="23" width="2" height="1" fill="#C8AA68"/>
+  <rect x="8"  y="19" width="2" height="1" fill="#C8AA68"/>
+  <rect x="11" y="25" width="2" height="1" fill="#C8AA68"/>
+  <rect x="14" y="17" width="2" height="1" fill="#C8AA68"/>
+  <rect x="2"  y="29" width="2" height="1" fill="#C8AA68"/>
+  <rect x="6"  y="27" width="2" height="1" fill="#C8AA68"/>
+  <rect x="9"  y="30" width="2" height="1" fill="#C8AA68"/>
+  <rect x="12" y="21" width="2" height="1" fill="#C8AA68"/>
+  <rect x="0"  y="22" width="2" height="1" fill="#C8AA68"/>
+  <!-- light dots -->
+  <rect x="3"  y="20" width="1" height="1" fill="#E8CA8A"/>
+  <rect x="10" y="18" width="1" height="1" fill="#E8CA8A"/>
+  <rect x="5"  y="25" width="1" height="1" fill="#E8CA8A"/>
+  <rect x="13" y="23" width="1" height="1" fill="#E8CA8A"/>
+  <rect x="1"  y="30" width="1" height="1" fill="#E8CA8A"/>
+  <rect x="8"  y="28" width="1" height="1" fill="#E8CA8A"/>
+
+  <!-- [1,1] Wood Log -->
+  <rect x="16" y="16" width="16" height="16" fill="#7B4B1A"/>
+  <!-- horizontal grain — dark -->
+  <rect x="16" y="16" width="16" height="1" fill="#5A3610"/>
+  <rect x="16" y="19" width="16" height="1" fill="#5A3610"/>
+  <rect x="16" y="22" width="16" height="1" fill="#5A3610"/>
+  <rect x="16" y="25" width="16" height="1" fill="#5A3610"/>
+  <rect x="16" y="28" width="16" height="1" fill="#5A3610"/>
+  <rect x="16" y="31" width="16" height="1" fill="#5A3610"/>
+  <!-- horizontal grain — light -->
+  <rect x="16" y="17" width="16" height="1" fill="#9B6B2A"/>
+  <rect x="16" y="20" width="16" height="1" fill="#9B6B2A"/>
+  <rect x="16" y="23" width="16" height="1" fill="#9B6B2A"/>
+  <rect x="16" y="26" width="16" height="1" fill="#9B6B2A"/>
+  <rect x="16" y="29" width="16" height="1" fill="#9B6B2A"/>
+
+  <!-- [2,1] Leaves -->
+  <rect x="32" y="16" width="16" height="16" fill="#1A6B00"/>
+  <!-- dark patches -->
+  <rect x="32" y="16" width="3" height="3" fill="#154E00"/>
+  <rect x="35" y="19" width="3" height="3" fill="#154E00"/>
+  <rect x="38" y="16" width="3" height="3" fill="#154E00"/>
+  <rect x="41" y="20" width="3" height="3" fill="#154E00"/>
+  <rect x="44" y="17" width="3" height="3" fill="#154E00"/>
+  <rect x="33" y="23" width="3" height="3" fill="#154E00"/>
+  <rect x="36" y="26" width="3" height="3" fill="#154E00"/>
+  <rect x="39" y="23" width="3" height="3" fill="#154E00"/>
+  <rect x="42" y="27" width="3" height="3" fill="#154E00"/>
+  <rect x="45" y="24" width="3" height="3" fill="#154E00"/>
+  <rect x="32" y="28" width="3" height="3" fill="#154E00"/>
+  <rect x="44" y="29" width="3" height="3" fill="#154E00"/>
+  <!-- holes -->
+  <rect x="34" y="18" width="2" height="2" fill="#0D3A00"/>
+  <rect x="40" y="21" width="2" height="2" fill="#0D3A00"/>
+  <rect x="45" y="19" width="2" height="2" fill="#0D3A00"/>
+  <rect x="37" y="25" width="2" height="2" fill="#0D3A00"/>
+  <rect x="42" y="24" width="2" height="2" fill="#0D3A00"/>
+  <rect x="33" y="29" width="2" height="2" fill="#0D3A00"/>
+  <rect x="44" y="28" width="2" height="2" fill="#0D3A00"/>
+  <!-- highlights -->
+  <rect x="37" y="18" width="1" height="1" fill="#2A8B10"/>
+  <rect x="33" y="21" width="1" height="1" fill="#2A8B10"/>
+  <rect x="43" y="18" width="1" height="1" fill="#2A8B10"/>
+  <rect x="46" y="23" width="1" height="1" fill="#2A8B10"/>
+  <rect x="39" y="28" width="1" height="1" fill="#2A8B10"/>
+  <rect x="35" y="27" width="1" height="1" fill="#2A8B10"/>
+  <rect x="41" y="30" width="1" height="1" fill="#2A8B10"/>
+
+  <!-- [3,1] Water -->
+  <rect x="48" y="16" width="16" height="16" fill="#1E6FBF"/>
+  <rect x="48" y="20" width="16" height="2" fill="#3AAFEF"/>
+  <rect x="48" y="25" width="16" height="2" fill="#3AAFEF"/>
+  <rect x="50" y="20" width="6" height="1" fill="#5CCFFF"/>
+  <rect x="56" y="25" width="5" height="1" fill="#5CCFFF"/>
+
+  <!-- ══════════════════════════════════════════════
+       ROW 2: Planks  CraftTableTop  Cobblestone  Furnace
+       ══════════════════════════════════════════════ -->
+
+  <!-- [0,2] Planks -->
+  <rect x="0"  y="32" width="16" height="16" fill="#C8A464"/>
+  <!-- horizontal grain (dark) -->
+  <rect x="0"  y="32" width="16" height="1" fill="#A8843C"/>
+  <rect x="0"  y="36" width="16" height="1" fill="#A8843C"/>
+  <rect x="0"  y="40" width="16" height="1" fill="#A8843C"/>
+  <rect x="0"  y="44" width="16" height="1" fill="#A8843C"/>
+  <!-- vertical split -->
+  <rect x="8"  y="32" width="1" height="16" fill="#A8843C"/>
+  <!-- highlight rows -->
+  <rect x="0"  y="34" width="16" height="1" fill="#D8B474"/>
+  <rect x="0"  y="38" width="16" height="1" fill="#D8B474"/>
+  <rect x="0"  y="42" width="16" height="1" fill="#D8B474"/>
+  <rect x="0"  y="46" width="16" height="1" fill="#D8B474"/>
+
+  <!-- [1,2] Crafting Table Top -->
+  <rect x="16" y="32" width="16" height="16" fill="#C8A464"/>
+  <!-- cross bars in dark brown -->
+  <rect x="22" y="32" width="4" height="16" fill="#5A3A0A"/>
+  <rect x="16" y="38" width="16" height="4"  fill="#5A3A0A"/>
+  <!-- restore corner squares -->
+  <rect x="16" y="32" width="6" height="6"  fill="#C8A464"/>
+  <rect x="26" y="32" width="6" height="6"  fill="#C8A464"/>
+  <rect x="16" y="42" width="6" height="6"  fill="#C8A464"/>
+  <rect x="26" y="42" width="6" height="6"  fill="#C8A464"/>
+  <!-- plank grain in corners -->
+  <rect x="16" y="34" width="6" height="1" fill="#A8843C"/>
+  <rect x="26" y="34" width="6" height="1" fill="#A8843C"/>
+  <rect x="16" y="44" width="6" height="1" fill="#A8843C"/>
+  <rect x="26" y="44" width="6" height="1" fill="#A8843C"/>
+
+  <!-- [2,2] Cobblestone -->
+  <rect x="32" y="32" width="16" height="16" fill="#888888"/>
+  <!-- grout lines -->
+  <rect x="32" y="39" width="16" height="2"  fill="#444444"/>
+  <rect x="40" y="32" width="2"  height="7"  fill="#444444"/>
+  <rect x="36" y="41" width="2"  height="7"  fill="#444444"/>
+  <!-- stone cells -->
+  <rect x="33" y="33" width="6" height="5" fill="#AAAAAA"/>
+  <rect x="42" y="33" width="5" height="5" fill="#AAAAAA"/>
+  <rect x="33" y="42" width="2" height="5" fill="#AAAAAA"/>
+  <rect x="38" y="42" width="9" height="5" fill="#AAAAAA"/>
+  <!-- inner shadow borders -->
+  <rect x="33" y="38" width="6" height="1" fill="#555555"/>
+  <rect x="42" y="38" width="5" height="1" fill="#555555"/>
+  <rect x="39" y="33" width="1" height="5" fill="#555555"/>
+  <rect x="35" y="41" width="1" height="6" fill="#555555"/>
+
+  <!-- [3,2] Furnace Front -->
+  <rect x="48" y="32" width="16" height="16" fill="#808080"/>
+  <!-- noise -->
+  <rect x="49" y="33" width="1" height="1" fill="#666666"/>
+  <rect x="52" y="36" width="1" height="1" fill="#666666"/>
+  <rect x="57" y="34" width="1" height="1" fill="#666666"/>
+  <rect x="60" y="38" width="1" height="1" fill="#666666"/>
+  <rect x="50" y="41" width="1" height="1" fill="#666666"/>
+  <rect x="55" y="45" width="1" height="1" fill="#666666"/>
+  <rect x="62" y="42" width="1" height="1" fill="#666666"/>
+  <rect x="54" y="39" width="1" height="1" fill="#666666"/>
+  <rect x="59" y="46" width="1" height="1" fill="#666666"/>
+  <!-- fire opening border -->
+  <rect x="51" y="39" width="10" height="8" fill="#404040"/>
+  <!-- fire glow -->
+  <rect x="52" y="40" width="8" height="6" fill="#FF6600"/>
+  <rect x="53" y="41" width="6" height="4" fill="#FFAA00"/>
+  <rect x="54" y="42" width="4" height="2" fill="#FFFF00"/>
+  <!-- top slot -->
+  <rect x="53" y="34" width="6" height="4" fill="#404040"/>
+  <rect x="54" y="35" width="4" height="2" fill="#666666"/>
+
+  <!-- ══════════════════════════════════════════════
+       ROW 3: Stick  Chest  Glass  Tools
+       ══════════════════════════════════════════════ -->
+
+  <!-- [0,3] Stick -->
+  <rect x="0"  y="48" width="16" height="16" fill="#1A0A00"/>
+  <!-- stick body -->
+  <rect x="6"  y="49" width="4" height="14" fill="#8B5A2B"/>
+  <!-- center shadow -->
+  <rect x="7"  y="49" width="2" height="14" fill="#6B3A1B"/>
+  <!-- left highlight -->
+  <rect x="6"  y="49" width="1" height="14" fill="#AB7A3B"/>
+  <!-- end caps -->
+  <rect x="6"  y="62" width="4" height="1"  fill="#5A3010"/>
+  <rect x="6"  y="49" width="4" height="1"  fill="#5A3010"/>
+
+  <!-- [1,3] Chest -->
+  <rect x="16" y="48" width="16" height="16" fill="#8B5A2B"/>
+  <!-- lid separator -->
+  <rect x="16" y="55" width="16" height="2"  fill="#5A3A1A"/>
+  <!-- gold clasp -->
+  <rect x="22" y="53" width="4" height="5"  fill="#C8A450"/>
+  <rect x="23" y="54" width="2" height="3"  fill="#E0BC60"/>
+  <rect x="23" y="55" width="2" height="1"  fill="#5A3A1A"/>
+  <!-- wood grain -->
+  <rect x="16" y="50" width="16" height="1" fill="#6B4020"/>
+  <rect x="16" y="59" width="16" height="1" fill="#6B4020"/>
+  <rect x="16" y="62" width="16" height="1" fill="#6B4020"/>
+  <!-- edge darkening -->
+  <rect x="16" y="48" width="1" height="16" fill="#5A3A1A"/>
+  <rect x="31" y="48" width="1" height="16" fill="#5A3A1A"/>
+
+  <!-- [2,3] Glass -->
+  <rect x="32" y="48" width="16" height="16" fill="#B8D8FF"/>
+  <!-- white corner reflections -->
+  <rect x="33" y="49" width="3" height="3" fill="#FFFFFF"/>
+  <rect x="44" y="49" width="3" height="3" fill="#FFFFFF"/>
+  <rect x="33" y="60" width="3" height="3" fill="#FFFFFF"/>
+  <rect x="44" y="60" width="3" height="3" fill="#FFFFFF"/>
+  <!-- edge lines -->
+  <rect x="32" y="48" width="16" height="1" fill="#8AB8E8"/>
+  <rect x="32" y="48" width="1"  height="16" fill="#8AB8E8"/>
+  <rect x="32" y="63" width="16" height="1" fill="#8AB8E8"/>
+  <rect x="47" y="48" width="1"  height="16" fill="#8AB8E8"/>
+  <!-- faint center cross -->
+  <rect x="39" y="49" width="2" height="14" fill="#D0E8FF"/>
+  <rect x="33" y="55" width="14" height="2" fill="#D0E8FF"/>
+
+  <!-- [3,3] Tools (Wooden Pickaxe) -->
+  <rect x="48" y="48" width="16" height="16" fill="#1A0A00"/>
+  <!-- handle -->
+  <rect x="55" y="53" width="2" height="9"  fill="#8B5A2B"/>
+  <rect x="56" y="53" width="1" height="9"  fill="#6B3A1B"/>
+  <rect x="55" y="53" width="1" height="9"  fill="#AB7A3B"/>
+  <!-- pickaxe head -->
+  <rect x="51" y="51" width="10" height="3" fill="#C0C0C0"/>
+  <rect x="51" y="53" width="10" height="1" fill="#808080"/>
+  <!-- tips -->
+  <rect x="50" y="51" width="1" height="2"  fill="#E0E0E0"/>
+  <rect x="61" y="51" width="1" height="2"  fill="#E0E0E0"/>
+  <!-- center mount -->
+  <rect x="54" y="52" width="4" height="2"  fill="#A0A0A0"/>
+
 </svg>
